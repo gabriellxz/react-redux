@@ -30,6 +30,14 @@ function reducer(state = initialState, action: any) {
                 }
             }
         }
+        case "decrement": {
+            return {
+                ...state,
+                counter: {
+                    value: state.counter.value - 1
+                }
+            }
+        }
         default: {
             return state;
         }
