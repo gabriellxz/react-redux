@@ -2,15 +2,22 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { connect } from 'react-redux'
+import { stateType } from './redux-old-school';
 
-function App({ count, increment, incrementAmount }: any) {
+type props = {
+  count: number;
+  increment: any;
+  incrementAmount: any;
+}
+
+function App(props:props) {
 
   function handleOnClick() {
-    increment();
+    props.increment();
   }
 
   function handleOnClickAmount() {
-    incrementAmount(5);
+    props.incrementAmount(5);
   }
 
   return (
@@ -26,10 +33,10 @@ function App({ count, increment, incrementAmount }: any) {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={handleOnClick}>
-          count is {count}
+          count is {props.count}
         </button>
         <button onClick={handleOnClickAmount}>
-          count is {count}
+          count is {props.count}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
@@ -42,7 +49,7 @@ function App({ count, increment, incrementAmount }: any) {
   )
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: stateType) => {
   return {
     count: state.counter.value
   }

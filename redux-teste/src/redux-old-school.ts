@@ -1,6 +1,12 @@
 import { createStore } from "@reduxjs/toolkit";
 
-const initialState = {
+export type stateType = {
+    counter: {
+        value: number;
+    }
+}
+
+const initialState:stateType = {
     counter: {
         value: 0
     }
