@@ -1,23 +1,29 @@
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { stateType } from './redux-old-school';
+import { CounterReducer } from './features/counter/counter-slice';
+// import { stateType } from './redux-old-school';
+// import { CounterState } from './features/counter/counter-slice';
+import { increment, decrement, incrementAmount } from "./features/counter/counter-slice";
 
 function App() {
 
-  const count = useSelector((state: stateType) => state.counter.value);
+  const count = useSelector((state: CounterReducer) => state.counter.value);
 
   const dispatch = useDispatch();
 
   function handleOnClick() {
-    dispatch({ type: "increment" });
+    // dispatch({ type: "counter/increment" });
+    dispatch(increment());
   }
 
   function handleOnClickAmount() {
-    dispatch({ type: "incrementAmount", payload: 5 });
+    // dispatch({ type: "counter/incrementAmount", payload: 5 });
+    dispatch(incrementAmount(5));
   }
 
   function handleDecrement() {
-    dispatch({ type: "decrement" })
+    // dispatch({ type: "counter/decrement" });
+    dispatch(decrement());
   }
 
   return (
