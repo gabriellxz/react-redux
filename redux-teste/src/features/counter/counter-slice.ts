@@ -1,11 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export type CounterReducer = {
-    counter: {
-        value: number;
-    }
-}
-
 export type CounterState = {
     value: number;
 }
